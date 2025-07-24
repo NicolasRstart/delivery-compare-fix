@@ -36,4 +36,6 @@ function cambiarSlide(direccion) {
 mostrarSlide(index);
 
 //esto es el a lo que em referia lo modifique con algunas modificaciones al slider pero 
-// lo implemente en lo que tenia planeado con logs de donde fueron tres usuarios
+//lo implemente en lo que tenia planeado con logs de donde fueron tres usuarios
+//asiendo fedback para futuras recomendaciones y plataformas utilisads mas recurentes 
+// psd:los atos son reales le pregunte a mis familiares 
