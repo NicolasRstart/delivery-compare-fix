@@ -75,6 +75,19 @@ function cambiarEstado(i) {
 }
 
 
+function mezclarElementosSlider() {
+  const slider = document.getElementById("miSlider");
+  const elementos = Array.from(slider.querySelectorAll("a")); // solo los <a>, sin botones
+
+  for (let i = elementos.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [elementos[i], elementos[j]] = [elementos[j], elementos[i]];
+  }
+
+  elementos.forEach(el => slider.insertBefore(el, slider.querySelector(".anterior")));
+}
+
+window.addEventListener("DOMContentLoaded", mezclarElementosSlider);
 
 //esto es el a lo que em referia lo modifique con algunas modificaciones al slider pero 
 //lo implemente en lo que tenia planeado con logs de donde fueron tres usuarios
