@@ -35,6 +35,47 @@ function cambiarSlide(direccion) {
 
 mostrarSlide(index);
 
+let sitios = JSON.parse(localStorage.getItem("sitios")) || datosIniciales;
+
+const slidesContainer = document.getElementById("slides");
+
+function renderSlides() {
+  slidesContainer.innerHTML = "";
+
+  sitios.forEach((sitio, i) => {
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    if (i === index) slide.classList.add("active");
+
+    slide.innerHTML = `
+      <h2>${sitio.usuario}</h2>
+      <p><strong>Sitio:</strong> ${sitio.sitio}</p>
+      <a href="${sitio.url}" target="_blank">Ver sitio</a>
+      <p><strong>Estado:</strong> ${sitio.estado}</p>
+      <button onclick="cambiarEstado(${i})">Cambiar estado</button>
+    `;
+
+    slidesContainer.appendChild(slide);
+  });
+}
+
+function mostrarSlide(n) {
+  index = (n + sitios.length) % sitios.length;
+  renderSlides();
+}
+
+function cambiarSlide(direccion) {
+  mostrarSlide(index + direccion);
+}
+
+function cambiarEstado(i) {
+  sitios[i].estado = sitios[i].estado === "no ingresado" ? "ingresado" : "no ingresado";
+  localStorage.setItem("sitios", JSON.stringify(sitios));
+  renderSlides();
+}
+
+
+
 //esto es el a lo que em referia lo modifique con algunas modificaciones al slider pero 
 //lo implemente en lo que tenia planeado con logs de donde fueron tres usuarios
 //asiendo fedback para futuras recomendaciones y plataformas utilisads mas recurentes 
