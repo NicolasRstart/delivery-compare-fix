@@ -1,12 +1,10 @@
 .cyan{
     color: aquamarine;
-    background-color: orange;
 }    
 
 .black{
     color: black;
     transition: 0.2s;
-    background-color: orange;
 }
 .listado{
     display: flex;
