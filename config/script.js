@@ -22,54 +22,35 @@ const datosIniciales = [
   }
 ];
 
-
 let sitios = JSON.parse(localStorage.getItem("sitios")) || datosIniciales;
-
-
-let index = 0;
-
-
 const slidesContainer = document.getElementById("slides");
 
-
 function renderSlides() {
-  slidesContainer.innerHTML = ""; 
+  slidesContainer.innerHTML = "";
 
   sitios.forEach((sitio, i) => {
     const slide = document.createElement("div");
     slide.className = "slide";
-    if (i === index) slide.classList.add("active");
 
     slide.innerHTML = `
-      <h2>${sitio.usuario}</h2>
+      <h4>${sitio.usuario}</h4>
       <p><strong>Sitio:</strong> ${sitio.sitio}</p>
-      <a href="${sitio.url}" target="_blank">Ver sitio</a>
+      <a href="${sitio.url}" target="_blank" class="btn btn-sm btn-outline-primary my-2">Ver sitio</a>
       <p><strong>Estado:</strong> ${sitio.estado}</p>
-      <button class="estado-btn">Cambiar estado</button>
+      <button class="btn btn-sm btn-outline-success estado-btn">Cambiar estado</button>
     `;
 
     slide.querySelector(".estado-btn").addEventListener("click", () => {
       sitios[i].estado = sitios[i].estado === "no ingresado" ? "ingresado" : "no ingresado";
       localStorage.setItem("sitios", JSON.stringify(sitios));
-      renderSlides(); 
+      renderSlides();
     });
 
     slidesContainer.appendChild(slide);
   });
 }
 
-
-function mostrarSlide(n) {
-  index = (n + sitios.length) % sitios.length;
-  renderSlides();
-}
-
-function cambiarSlide(direccion) {
-  mostrarSlide(index + direccion);
-}
-
-
-mostrarSlide(index);
+renderSlides();
 
 //esto es el a lo que em referia lo modifique con algunas modificaciones al slider pero 
 //lo implemente en lo que tenia planeado con logs de donde fueron tres usuarios
