@@ -19,7 +19,29 @@ const datosIniciales = [
     sitio: "Lucciano's Obelisco (PedidosYa)",
     url: "https://www.pedidosya.com.ar/restaurantes/buenos-aires/luccianos-obelisco-4c7ffefd-b510-4bc7-8cf3-99b8fde44104-menu?search=helado",
     estado: "no ingresado"
-  }
+  },
+  {
+      id: 4,
+    usuario: "enrique sabatte",
+    sitio: "antiche tentazioni (PedidosYa)",
+    url: "https://www.pedidosya.com.ar/restaurantes/buenos-aires/antiche-tentazioni-centro-menu",
+    estado: "no ingresado"
+  },
+  {
+      id: 5,
+    usuario: "agustin pichot",
+    sitio: "mostaza Obelisco (Rappi)",
+    url: "https://www.rappi.com.ar/restaurantes/132118-mostaza",
+    estado: "no ingresado"
+  },
+  {
+      id: 6,
+    usuario: "agustina sabatte",
+    sitio: "la-juvenil-lavalle (PedidosYa)",
+    url: "https://www.pedidosya.com.ar/restaurantes/buenos-aires/la-juvenil-lavalle-restaurante-f00f362d-1b2c-4e79-8433-a0b63de8a45e-menu",
+    estado: "no ingresado"
+  },
+
 ];
 
 let sitios = JSON.parse(localStorage.getItem("sitios")) || datosIniciales;
